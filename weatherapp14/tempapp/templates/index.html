@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+</head>
+
+<body>
+  <div class="content_wrapper" id="app">
+    <div v-if="infos.city">
+      <h1>
+        Weather
+      
+      </h1><br>
+      <form method="get">
+        <label name="city">City name:</label><br>
+        <input class="inputel" type="text" name="city" placeholder="eg : hyderabad"><br><br>
+        <input class="submit" type="submit" value="Submit">
+      </form> <br>
+  
+      <div class="weather_card">
+        <div class="weather_card_img" :style="{backgroundImage: weatherImg}">
+          <div class="weather_card_state">
+            <span class="material-icons">
+                <img src="https://store-images.s-microsoft.com/image/apps.16894.c02476d2-2378-4f60-8290-b6d4b3842643.79a2ef6a-4775-4c79-8d93-9caf077660eb.1bbd88a4-0a17-4750-91a0-cd7d98f58e9d" class="img" >
+            </span>
+          </div>
+        </div>
+  
+        <div class="weather_card_infos">
+          <div class="weather_card_infos_title">
+            {{response.city}}, {{response.country}}
+          </div>
+          <div class="weather_card_infos_temp">
+            {{response.celcius}}°C / {{response.kelvin}}°k
+          </div>
+          <div class="bottom">
+            <hr>
+            <div class="weather_card_infos_bottom">
+            Weather : {{response.weather}} <br>
+            Pressure: {{response.pressure}}Pa
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}
